@@ -159,7 +159,7 @@ class GlslDatabase
             else
                 item=code['versions'].last
             end
-            
+
             if code['user']
                 user=code['user']
             else
@@ -192,8 +192,8 @@ class GlslDatabase
 private
 
     def connect_database
-        uri = URI.parse(ENV['MONGOHQ_URL'])
-        conn = Mongo::Connection.from_uri(ENV['MONGOHQ_URL'])
+        uri = URI.parse(mongodb://<dbuser>:<dbpassword>@ds041494.mongolab.com:41494/glsl)
+        conn = Mongo::Connection.from_uri(mongodb://<dbuser>:<dbpassword>@ds041494.mongolab.com:41494/glsl)
         @db = conn.db(uri.path.gsub(/^\//, ''))
 
         @versions=@db.collection('versions')
